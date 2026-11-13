@@ -10,7 +10,9 @@ router = APIRouter(prefix="/farms", tags=["farms"])
 @router.post("", response_model=FarmOut, status_code=201)
 def create_farm(payload: FarmCreate, db: Session = Depends(get_db)):
     farm = Farm(**payload.model_dump())
-    db.add(farm); db.commit(); db.refresh(farm)
+    db.add(farm)
+    db.commit()
+    db.refresh(farm)
     return farm
 
 @router.get("", response_model=list[FarmOut])
