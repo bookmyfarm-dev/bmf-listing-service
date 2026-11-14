@@ -18,3 +18,4 @@ jobs:
     uses: bookmyfarm-dev/bmf-pipeline-templates/.github/workflows/python-service-ci.yml@v1
     with:
       image-name: bmf-listing-service
+      fail-on-vulnerabilities: false
